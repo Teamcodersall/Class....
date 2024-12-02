@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Coyotes Classroom Calendar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark {
+            background-color: #000;
+            color: #fff;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        body.dark h1 {
+            color: #0f0;
+            text-shadow: 0 0 10px #0f0;
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        body.dark .calendar {
+            background: #222;
+            box-shadow: 0 0 15px #444;
+        }
+        .day {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s;
+        }
+        body.dark .day {
+            background-color: #333;
+        }
+        .day span {
+            display: none;
+            font-size: 12px;
+            color: #666;
+        }
+        .day:hover span {
+            display: block;
+            position: absolute;
+            bottom: -30px;
+            background: #444;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            z-index: 10;
+        }
+        body.dark .day:hover span {
+            background: #111;
+            text-shadow: 0 0 5px #fff;
+        }
+        .marker {
+            width: 10px;
+            height: 10px;
+            background-color: black;
+            border-radius: 50%;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+        .switch-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: '';
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #4CAF50;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        body.dark .slider {
+            box-shadow: 0 0 10px #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Creative Coyotes Classroom Calendar</h1>
+    <div class="switch-container">
+        <label class="switch">
+            <input type="checkbox" id="modeToggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="calendar">
+        <!-- Calendar Days -->
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day">1</div>
+        <div class="day">2</div>
+        <div class="day">3</div>
+        <div class="day">4</div>
+        <div class="day">
+            5
+            <span>Math Perimeter/Area Check-in #2</span>
+            <div class="marker"></div>
+        </div>
+        <div class="day">6</div>
+        <div class="day">7</div>
+        <div class="day">8</div>
+        <div class="day">
+            9
+            <span>Buoyancy and Flight Check-in</span>
+            <div class="marker"></div>
+        </div>
+        <div class="day">
+            10
+            <span>Social Studies: Regions Check-in</span>
+            <div class="marker"></div>
+        </div>
+        <div class="day">
+            11
+            <span>Book Clubs Group Project Presentation</span>
+            <div class="marker"></div>
+        </div>
+        <div class="day">
+            12
+            <span>Narrative Partner Story Sharing</span>
+            <div class="marker"></div>
+        </div>
+        <div class="day">13</div>
+        <div class="day">14</div>
+        <div class="day">15</div>
+        <div class="day">16</div>
+        <div class="day">17</div>
+        <div class="day">18</div>
+        <div class="day">19</div>
+        <div class="day">20</div>
+        <div class="day">21</div>
+        <div class="day">22</div>
+        <div class="day">23</div>
+        <div class="day">24</div>
+        <div class="day">25</div>
+        <div class="day">26</div>
+        <div class="day">27</div>
+        <div class="day">28</div>
+        <div class="day">29</div>
+        <div class="day">30</div>
+        <div class="day">31</div>
+    </div>
+    <script>
+        const toggle = document.getElementById('modeToggle');
+        const body = document.body;
+
+        toggle.addEventListener('change', () => {
+            body.classList.toggle('dark');
+        });
+    </script>
+</body>
+</html>
